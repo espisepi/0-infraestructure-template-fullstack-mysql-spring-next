@@ -1,0 +1,12 @@
+
+
+- Pasos a seguir - (Montar la infraestructura):
+  - Mysql (base de datos)
+  - Phpmyadmin (controlar la base de datos)
+  - Spring java (backend)
+  - Nextjs react (frontend)
+  - Docker - que contiene todo lo anterior
+    
+
+- Realizando pasos a seguir:
+  0 - Montamos Docker con MySQL y PHPMyAdmin ( https://springhow.com/mysql-docker-container-for-local-development/ )
