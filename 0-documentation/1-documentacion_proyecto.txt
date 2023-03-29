@@ -10,3 +10,6 @@
 
 - Realizando pasos a seguir:
   0 - Montamos Docker con MySQL y PHPMyAdmin ( https://springhow.com/mysql-docker-container-for-local-development/ )
+      -- Leer solamente apartado: Using Docker Compose for MySQL and phpMyAdmin
+      -- Con esto crearemos el archivo docker-compose.yml y lo iremos rellenando con los demas servicios.
+      
