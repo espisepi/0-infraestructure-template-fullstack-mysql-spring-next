@@ -1,0 +1,10 @@
+
+- Motando la infraestructura
+    1 - Crear el fichero docker-compose.yml con phpmyadmin y mysql
+    2- Ejecutar los comandos siguientes:
+        -- sudo docker-compose up
+        -- sudo docker-compose up -f docker-compose.yml -d
+        -- sudo docker-compose down -f docker-compose.yml
+    3- Ir a http://localhost:8081 para abrir phpmyadmin y ver las tablas sql
+
+    4- Añadimos spring boot al fichero docker-compose.yml
