@@ -8,3 +8,4 @@
     3- Ir a http://localhost:8081 para abrir phpmyadmin y ver las tablas sql
 
     4- Añadimos spring boot al fichero docker-compose.yml
+        -- Creamos proyecto spring boot con spring initalizr en la web (elegimos la opcion de Maven, Java 11)

@@ -3,7 +3,7 @@
 - Pasos a seguir - (Montar la infraestructura):
   - Mysql (base de datos)
   - Phpmyadmin (controlar la base de datos)
-  - Spring java (backend)
+  - Spring java (backend) (Maven, Java 11) ( https://www.marcobehler.com/guides/a-guide-to-java-versions-and-features )
   - Nextjs react (frontend)
   - Docker - que contiene todo lo anterior
     
@@ -13,3 +13,32 @@
       -- Leer solamente apartado: Using Docker Compose for MySQL and phpMyAdmin
       -- Con esto crearemos el archivo docker-compose.yml y lo iremos rellenando con los demas servicios.
   1 - Añadimos Spring boot al fichero docker-compose.yml
+    -- install Java 20 on ubuntu - https://ubuntuhandbook.org/index.php/2022/03/install-jdk-18-ubuntu/
+    -- Descargamos el eclipse xD a chuparla el intelliJ
+    -- Seguimos el tutorial https://www.javainuse.com/spring/boot-jwt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+================    DESCARTADO ==========================
+    -- Descargamos IntelliJ 2019.3 e inicializamos proyecto con Spring desde el intelliJ
+    -- Descargamos el proyecto de spring desde la pagina de spring initalizr
+    -- configuramos intelliJ con Java 20
+      --- File -> Project Structure -> (Default view) Project Settings/Project -> SDK: 20 (seleccionar el jdk20, que instalamos previamente)
+      --- Añadir al pom.xml las dependencias de spring-boot-starter-data-jpa, spring-boot-starter-web y mysql-connector-java.
