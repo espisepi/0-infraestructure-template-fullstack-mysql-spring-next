@@ -15,8 +15,8 @@
   1 - Añadimos Spring boot al fichero docker-compose.yml
     -- install Java 20 on ubuntu - https://ubuntuhandbook.org/index.php/2022/03/install-jdk-18-ubuntu/
     -- Descargamos el eclipse xD a chuparla el intelliJ
-    -- Seguimos el tutorial https://www.javainuse.com/spring/boot-jwt
-
+    -- Seguimos el tutorial https://springframework.guru/jwt-authentication-in-spring-microservices-jwt-token/
+      --- Combinado con el tutorial https://spring.io/guides/gs/accessing-data-jpa/  para solucionar los errores de los imports con nombres deprecados como de javax -> jakarta
 
 
 
@@ -37,6 +37,7 @@
 
 
 ================    DESCARTADO ==========================
+    -- Seguimos el tutorial https://www.javainuse.com/spring/boot-jwt
     -- Descargamos IntelliJ 2019.3 e inicializamos proyecto con Spring desde el intelliJ
     -- Descargamos el proyecto de spring desde la pagina de spring initalizr
     -- configuramos intelliJ con Java 20
