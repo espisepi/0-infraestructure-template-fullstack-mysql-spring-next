@@ -15,7 +15,7 @@
     - Ejecutar la opcion "maven install"
     - IMPORTANTE: Ejecutar el proyecto seleccionando "Run as" -> "Java Application" en la CLASE PRINCIPAL DEL PROYECTO SPRING BOOT AKA la que lleva la anotacion @SpringBootApplication
 
-
+3) Error y Solucion:  para solucionar los errores de los imports con nombres deprecados con javax -> jakarta
 
 
 =========================== AUTENTICACION POSTMAN ==================
