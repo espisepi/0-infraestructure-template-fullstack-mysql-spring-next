@@ -47,7 +47,19 @@ Resumen: Tenemos que conseguir añadir en el Header el paso 5 y en el Body el pa
 5 - Le damos al boton de "Send" y el servidor nos devolvera el token.
 
 
+================= UPLOAD FILE POSTMAN ===============================
+
+- en application.properties se puede indicar el tamaño maximo del archivo de subida !!!
+	-- spring.servlet.multipart.max-file-size=10MB
+	-- spring.servlet.multipart.max-request-size=10MB
+
+1 - Ruta -> POST localhost:8080/api/clientes/upload
+2- Body -> form-data
+	2.1 - "archivo" KEY - Seleccionar tipo File - Pulsamos en el boton "Elegir archivos" y lo elegimos
+	2.2 - El nombre "archivo" lo elegimos en el controlador en la linea "@RequestParam("archivo") MultiparFile archivo"
+	2.3 - id key / 1 (el id del cliente al que le asociamos la imagen, cosas de la implementacion del proyecto)
 
 
+============= VER IMAGEN ===============
 
-
+1 - Ponemos en el navegador: endpoint para ver imagen (localhost:8080/api/uploads/img/{nombreFoto:.+}) y el src de la imagen que lo vemos en postman
