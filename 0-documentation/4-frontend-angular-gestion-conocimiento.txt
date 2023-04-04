@@ -1,0 +1,8 @@
+
+
+1) Error:  Error: not found: python2 ( https://stackoverflow.com/questions/61797786/getting-python2-error-in-nodejs-installation-in-ubuntu-20-04 )
+1) Solucion: Instalar python2 siguiendo los pasos de stackoverflow:
+sudo add-apt-repository universe
+sudo apt-get update
+sudo apt-get install python2 This will install python2 successfully. Now you can continue with normal nodejs installation
+
