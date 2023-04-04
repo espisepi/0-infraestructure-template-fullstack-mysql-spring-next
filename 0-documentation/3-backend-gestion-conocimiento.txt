@@ -16,3 +16,38 @@
     - IMPORTANTE: Ejecutar el proyecto seleccionando "Run as" -> "Java Application" en la CLASE PRINCIPAL DEL PROYECTO SPRING BOOT AKA la que lleva la anotacion @SpringBootApplication
 
 
+
+
+=========================== AUTENTICACION POSTMAN ==================
+
+1 - Ruta -> POST localhost:8080/oauth/token
+2 - Body -> x-www-form-urlencoded
+	2.1 - username / andres
+	2.2 - password / 12345
+	2.3 - grant_type / password
+3 - Authorization -> Basic Auth (Estos parametros se configuran en AuthorizationServerConfig.java - Line 36 clients.inMemory().withClient("angularapp").secret(passwordEncoder.encode("12345")).scopes("read", "write")....)
+	3.1 - username / angularapp
+	3.2 - password / 12345
+4 - Authorization -> Pulsar en el boton "Preview Request"
+5 - Headers -> Aparecerá un nuevo campo gracias al pulsar el boton del paso anterior
+	5.1 - Nuevo campo: Authorization / Basic YW5nd....
+Resumen: Tenemos que conseguir añadir en el Header el paso 5 y en el Body el paso 2
+6- Le damos al boton de "Send" y el servidor nos devolvera el token.
+7- Ya tenemos el token! :)
+
+
+=========================== Peticion con Token POSTMAN ==================
+
+1 - Ruta (protegida con token) -> GET localhost:8080/api/clientes/1
+2 - Authorization -> Bearer Token
+	2.1 - Token / eyJhb... (pegamos el token que obtuvimos en el apartado anterior "AUTENTICACION POSTMAN")
+3 - Authorization -> Pulsar en el boton "Preview Request"
+4 - Headers -> Aparecerá un nuevo campo gracias al pulsar el boton del paso anterior
+	4.1 - Nuevo campo: Authorization / Bearer eyJhb....(token obtenido en el paso anterior)
+5 - Le damos al boton de "Send" y el servidor nos devolvera el token.
+
+
+
+
+
+

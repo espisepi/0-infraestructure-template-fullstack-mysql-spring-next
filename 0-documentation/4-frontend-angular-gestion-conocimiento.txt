@@ -6,3 +6,8 @@ sudo add-apt-repository universe
 sudo apt-get update
 sudo apt-get install python2 This will install python2 successfully. Now you can continue with normal nodejs installation
 
+
+2) Error: DeprecationWarning: Access to process.binding(‘http_parser’) is deprecated. (https://pinter.org/archives/13843)
+2) Solucion: 
+npm install --force
+npm audit fix --force
