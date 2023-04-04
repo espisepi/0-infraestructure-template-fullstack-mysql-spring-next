@@ -17,7 +17,7 @@
     -- Descargamos el eclipse xD a chuparla el intelliJ
     -- Seguimos el tutorial https://springframework.guru/jwt-authentication-in-spring-microservices-jwt-token/
       --- Combinado con el tutorial https://spring.io/guides/gs/accessing-data-jpa/  para solucionar los errores de los imports con nombres deprecados como de javax -> jakarta
-
+      --- Combinado con el libro Spring 5 Anaya para configurar la base de datos H2 (temporal, despues se cambia por mysql) (todo se configura en el application.properties, pg 157)
 
 
 

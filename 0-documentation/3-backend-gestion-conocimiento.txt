@@ -1,0 +1,18 @@
+
+
+
+1) Error:  Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Cannot load driver class: org.h2.Driver
+1) Solucion: Faltaba añadir la dependencia de h2 en el pom.xml (https://stackoverflow.com/questions/54230137/cannot-load-driver-class-org-h2-driver-in-spring-boot-application)
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+
+2) Error: No podemos ejecutar el proyecto
+2) Solucion: 
+    - Ejecutar la opcion "maven install"
+    - IMPORTANTE: Ejecutar el proyecto seleccionando "Run as" -> "Java Application" en la CLASE PRINCIPAL DEL PROYECTO SPRING BOOT AKA la que lleva la anotacion @SpringBootApplication
+
+
