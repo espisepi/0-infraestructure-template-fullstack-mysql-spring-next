@@ -1,15 +1,24 @@
+
+
+INSERT INTO product (id, slug, name, description, created_at) VALUES(1,'product-1-test', 'product 1 name', 'description product 1' ,  NOW());
+
+
+
+
+/* ========== POPULATES POR DEFECTO ==========================  */
+
 /* Populate tabla clientes */
 
-INSERT INTO regiones (id, nombre) VALUES (1, 'Sudamérica');
-INSERT INTO regiones (id, nombre) VALUES (2, 'Centroamérica');
-INSERT INTO regiones (id, nombre) VALUES (3, 'Norteamérica');
+INSERT INTO regiones (id, nombre) VALUES (1, 'Sudamï¿½rica');
+INSERT INTO regiones (id, nombre) VALUES (2, 'Centroamï¿½rica');
+INSERT INTO regiones (id, nombre) VALUES (3, 'Norteamï¿½rica');
 INSERT INTO regiones (id, nombre) VALUES (4, 'Europa');
 INSERT INTO regiones (id, nombre) VALUES (5, 'Asia');
 INSERT INTO regiones (id, nombre) VALUES (6, 'Africa');
-INSERT INTO regiones (id, nombre) VALUES (7, 'Oceanía');
-INSERT INTO regiones (id, nombre) VALUES (8, 'Antártida');
+INSERT INTO regiones (id, nombre) VALUES (7, 'Oceanï¿½a');
+INSERT INTO regiones (id, nombre) VALUES (8, 'Antï¿½rtida');
 
-INSERT INTO clientes (region_id, nombre, apellido, email, create_at) VALUES(1, 'Andrés', 'Guzmán', 'profesor@bolsadeideas.com', '2018-01-01');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at) VALUES(1, 'Andrï¿½s', 'Guzmï¿½n', 'profesor@bolsadeideas.com', '2018-01-01');
 INSERT INTO clientes (region_id, nombre, apellido, email, create_at) VALUES(2, 'Mr. John', 'Doe', 'john.doe@gmail.com', '2018-01-02');
 INSERT INTO clientes (region_id, nombre, apellido, email, create_at) VALUES(4, 'Linus', 'Torvalds', 'linus.torvalds@gmail.com', '2018-01-03');
 INSERT INTO clientes (region_id, nombre, apellido, email, create_at) VALUES(4, 'Rasmus', 'Lerdorf', 'rasmus.lerdorf@gmail.com', '2018-01-04');
