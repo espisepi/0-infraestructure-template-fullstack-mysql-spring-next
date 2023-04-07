@@ -11,7 +11,6 @@ import com.bolsadeideas.springboot.backend.apirest.features.shop.product.model.P
 // https://www.baeldung.com/mapstruct !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 @Mapper( componentModel = "spring" )
-@Component
 public interface ProductModelToProductDTOMapper {
 	
 	ProductModelToProductDTOMapper INSTANCE = Mappers.getMapper(ProductModelToProductDTOMapper.class);

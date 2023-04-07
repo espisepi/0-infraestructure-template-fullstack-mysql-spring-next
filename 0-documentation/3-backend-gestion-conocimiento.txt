@@ -18,13 +18,16 @@
 3) Error y Solucion:  para solucionar los errores de los imports con nombres deprecados con javax -> jakarta
 
 4) Error: NoSuchBeanException en el mapper ProductModelToProductDTOMapper
-4) Solucion: Para solucionarlo añadir en la interface el @Mapper y el @Component para indicar que es un bean. Y en el pom.xml añadir tanto la dependencia <dependency> como el apartado de plugin <plugin> de mapstruct (buscarlo en google). Y tener la <dependency> de lombok añadida tambien.
+4) Solucion: Para solucionarlo añadir en la interface el @Mapper y el @Component para indicar que es un bean (alomejor esto ultimo del @component no hace falta). Y en el pom.xml añadir tanto la dependencia <dependency> como el apartado de plugin <plugin> de mapstruct (buscarlo en google). Y tener la <dependency> de lombok añadida tambien.
 	- https://stackoverflow.com/questions/47109827/mapstruct-mapper-annotation-dont-create-bean
 	- https://www.baeldung.com/mapstruct
 	- https://auth0.com/blog/how-to-automatically-map-jpa-entities-into-dtos-in-spring-boot-using-mapstruct/#Aside--Securing-Spring-APIs-with-Auth0
 
 5) Error: Todas las palabras reservadas en Java fallan
 5 Solucion: En pom.xml se definio el <plugin> de mapStruct con java 1.8 cuando se utilizaba java 10 en el proyecto. Eso provocaba incompatibilidad. Se ha solucionado indicando en el <plugin> del pom.xml que la version de java es la 10.
+
+6) Error: El convertidor falla y devuelve todos los atributos del DTO en null
+6) Solucion: el fallo era porque no estaba instalado lombok en el eclipse (a parte de tener que añadirlo en el pom.xml). y por lo tanto no se generaban los metodos getter y setter y el convertidor convertia sin ningun atributo porque no existia ningun metodo getter y setter para los atributos.
 
 =========================== AUTENTICACION POSTMAN ==================
 

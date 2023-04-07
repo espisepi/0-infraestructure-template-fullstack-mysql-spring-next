@@ -22,7 +22,8 @@ public class ProductServiceImpl implements IProductService {
 	
 	private Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
 	
-	private ProductModelToProductDTOMapper productModelToProductDTOMapper = ProductModelToProductDTOMapper.INSTANCE;
+	@Autowired
+	private ProductModelToProductDTOMapper productModelToProductDTOMapper;
 
 	
 	@Autowired
