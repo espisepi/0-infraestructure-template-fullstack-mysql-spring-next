@@ -24,6 +24,7 @@ public class ProductModel implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	private Long id;
 	
 	@Column(name = "created_at")
@@ -33,15 +34,20 @@ public class ProductModel implements Serializable{
 	
 	
 	// Atributos de product
+	@Column
 	private String slug;
+	@Column
 	private String name;
+	@Column
 	private String description;
 	@Column(name = "images")
 	@ElementCollection(targetClass=String.class)
 	private List<String> images;
+	@Column
 	private String scene3D;
 	@Column(name = "number_of_stock")
 	private Integer numberOfStock;
+	@Column
 	private Double price;
 	
 	// Futuras implementaciones
@@ -113,6 +119,9 @@ public class ProductModel implements Serializable{
 	public void setImages(List<String> images) {
 		this.images = images;
 	}
+	
+	
+	
 
 	public String getScene3D() {
 		return scene3D;
