@@ -22,6 +22,7 @@
 	- https://stackoverflow.com/questions/47109827/mapstruct-mapper-annotation-dont-create-bean
 	- https://www.baeldung.com/mapstruct
 	- https://auth0.com/blog/how-to-automatically-map-jpa-entities-into-dtos-in-spring-boot-using-mapstruct/#Aside--Securing-Spring-APIs-with-Auth0
+	- Para mapear Page https://stackoverflow.com/questions/48867377/is-there-a-auto-mapping-for-spring-pageable-sort-with-mapstruct
 
 5) Error: Todas las palabras reservadas en Java fallan
 5 Solucion: En pom.xml se definio el <plugin> de mapStruct con java 1.8 cuando se utilizaba java 10 en el proyecto. Eso provocaba incompatibilidad. Se ha solucionado indicando en el <plugin> del pom.xml que la version de java es la 10.

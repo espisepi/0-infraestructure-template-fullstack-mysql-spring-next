@@ -13,11 +13,11 @@ public interface IProductService {
 	
 	public List<ProductDTO> findAll();
 	
-	public Page<ProductModel> findAll(Pageable pageable);
+	public Page<ProductDTO> findAll(Pageable pageable);
 	
-	public ProductModel findById(Long id);
+	public ProductDTO findById(Long id);
 	
-	public ProductModel save(ProductModel product);
+	public ProductDTO save(ProductDTO productDTO);
 	
 	public void delete(Long id);
 }

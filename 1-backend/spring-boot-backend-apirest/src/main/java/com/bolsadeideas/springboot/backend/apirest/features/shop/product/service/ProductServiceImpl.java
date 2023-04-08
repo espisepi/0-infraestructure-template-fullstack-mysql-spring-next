@@ -44,22 +44,27 @@ public class ProductServiceImpl implements IProductService {
 
 	@Override
 	@Transactional(readOnly =true)
-	public Page<ProductModel> findAll(Pageable pageable) {
-		Page<ProductModel> result = productRepository.findAll(pageable);
+	public Page<ProductDTO> findAll(Pageable pageable) {
+		Page<ProductModel> productModels= productRepository.findAll(pageable);
+		// The pageable abstraction has the map method:
+		Page<ProductDTO> result = productModels.map(productModelToProductDTOMapper::productModelToProductDTO);
 		return result;
 	}
 
 	@Override
 	@Transactional(readOnly =true)
-	public ProductModel findById(Long id) {
-		ProductModel result = productRepository.findById(id).orElse(null);
+	public ProductDTO findById(Long id) {
+		ProductModel productModel = productRepository.findById(id).orElse(null);
+		ProductDTO result = productModelToProductDTOMapper.productModelToProductDTO(productModel);
 		return result;
 	}
 
 	@Override
 	@Transactional
-	public ProductModel save(ProductModel product) {
-		ProductModel result = productRepository.save(product);
+	public ProductDTO save(ProductDTO productDTO) {
+		ProductModel productModel = productModelToProductDTOMapper.productDTOToProductModel(productDTO);
+		ProductModel productModelSaved = productRepository.save(productModel);
+		ProductDTO result = productModelToProductDTOMapper.productModelToProductDTO(productModelSaved);
 		return result;
 	}
 
