@@ -11,6 +11,14 @@ import com.bolsadeideas.springboot.backend.apirest.features.shop.product.model.P
 
 public interface IProductService {
 	
+	/* Custom methods */
+	
+	public Page<ProductDTO> findAll(Integer page, Integer numberOfProductsToReturn);
+	
+	
+	
+	/* Classic methods  */
+	
 	public List<ProductDTO> findAll();
 	
 	public Page<ProductDTO> findAll(Pageable pageable);

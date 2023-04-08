@@ -72,10 +72,8 @@ public class ProductController {
 	
 	@GetMapping("/page/{page}")
 	public Page<ProductDTO> getProductsPageable(@PathVariable Integer page) {
-		Integer numOfProductsToReturn = 4;
-		Pageable pageable = PageRequest.of(page, numOfProductsToReturn);
-		Page<ProductDTO> result = productService.findAll(pageable);
-		return result;
+		Integer numberOfProductsToReturn = 4;
+		return productService.findAll(page, numberOfProductsToReturn);
 	}
 	
 	
