@@ -176,7 +176,7 @@ public class ClienteRestController {
 			Cliente cliente = clienteService.findById(id);
 			String nombreFotoAnterior = cliente.getFoto();
 			
-			uploadService.eliminar(nombreFotoAnterior);
+			uploadService.delete(nombreFotoAnterior);
 			
 		    clienteService.delete(id);
 		} catch (DataAccessException e) {
@@ -201,7 +201,7 @@ public class ClienteRestController {
 
 			String nombreArchivo = null;
 			try {
-				nombreArchivo = uploadService.copiar(archivo);
+				nombreArchivo = uploadService.copy(archivo);
 			} catch (IOException e) {
 				response.put("mensaje", "Error al subir la imagen del cliente");
 				response.put("error", e.getMessage().concat(": ").concat(e.getCause().getMessage()));
@@ -210,7 +210,7 @@ public class ClienteRestController {
 			
 			String nombreFotoAnterior = cliente.getFoto();
 			
-			uploadService.eliminar(nombreFotoAnterior);
+			uploadService.delete(nombreFotoAnterior);
 						
 			cliente.setFoto(nombreArchivo);
 			
@@ -230,7 +230,7 @@ public class ClienteRestController {
 		Resource recurso = null;
 		
 		try {
-			recurso = uploadService.cargar(nombreFoto);
+			recurso = uploadService.load(nombreFoto);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

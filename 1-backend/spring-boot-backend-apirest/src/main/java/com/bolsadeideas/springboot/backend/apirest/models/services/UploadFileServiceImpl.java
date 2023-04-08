@@ -20,48 +20,48 @@ public class UploadFileServiceImpl implements IUploadFileService{
 	
 	private final Logger log = LoggerFactory.getLogger(UploadFileServiceImpl.class);
 	
-	private final static String DIRECTORIO_UPLOAD = "uploads";
+	private final static String UPLOAD_DIRECTORY = "uploads";
 
 	@Override
-	public Resource cargar(String nombreFoto) throws MalformedURLException {
+	public Resource load(String nameFile) throws MalformedURLException {
 		
-		Path rutaArchivo = getPath(nombreFoto);
-		log.info(rutaArchivo.toString());
+		Path pathFile = getPath(nameFile);
+		log.info(pathFile.toString());
 		
-		Resource recurso = new UrlResource(rutaArchivo.toUri());
+		Resource resource = new UrlResource(pathFile.toUri());
 		
-		if(!recurso.exists() && !recurso.isReadable()) {
-			rutaArchivo = Paths.get("src/main/resources/static/images").resolve("no-usuario.png").toAbsolutePath();
+		if(!resource.exists() && !resource.isReadable()) {
+			pathFile = Paths.get("src/main/resources/static/images").resolve("no-usuario.png").toAbsolutePath();
 			
-			recurso = new UrlResource(rutaArchivo.toUri());
+			resource = new UrlResource(pathFile.toUri());
 			
-			log.error("Error no se pudo cargar la imagen: " + nombreFoto);
+			log.error("Error no se pudo cargar el archivo: " + nameFile);
 			
 		}
-		return recurso;
+		return resource;
 	}
 
 	@Override
-	public String copiar(MultipartFile archivo) throws IOException {
+	public String copy(MultipartFile file) throws IOException {
 		
-		String nombreArchivo = UUID.randomUUID().toString() + "_nameOriginalFileIs_" +  archivo.getOriginalFilename().replace(" ", "");
+		String nameFile = UUID.randomUUID().toString() + "_nameOriginalFileIs_" +  file.getOriginalFilename().replace(" ", "");
 		
-		Path rutaArchivo = getPath(nombreArchivo);
-		log.info(rutaArchivo.toString());
+		Path pathFile = getPath(nameFile);
+		log.info(pathFile.toString());
 		
-		Files.copy(archivo.getInputStream(), rutaArchivo);
+		Files.copy(file.getInputStream(), pathFile);
 		
-		return nombreArchivo;
+		return nameFile;
 	}
 
 	@Override
-	public boolean eliminar(String nombreFoto) {
+	public boolean delete(String nameFile) {
 		
-		if(nombreFoto !=null && nombreFoto.length() >0) {
-			Path rutaFotoAnterior = Paths.get("uploads").resolve(nombreFoto).toAbsolutePath();
-			File archivoFotoAnterior = rutaFotoAnterior.toFile();
-			if(archivoFotoAnterior.exists() && archivoFotoAnterior.canRead()) {
-				archivoFotoAnterior.delete();
+		if(nameFile !=null && nameFile.length() >0) {
+			Path pathFile = Paths.get("uploads").resolve(nameFile).toAbsolutePath();
+			File file = pathFile.toFile();
+			if(file.exists() && file.canRead()) {
+				file.delete();
 				return true;
 			}
 		}
@@ -70,8 +70,8 @@ public class UploadFileServiceImpl implements IUploadFileService{
 	}
 
 	@Override
-	public Path getPath(String nombreFoto) {
-		return Paths.get(DIRECTORIO_UPLOAD).resolve(nombreFoto).toAbsolutePath();
+	public Path getPath(String nameFile) {
+		return Paths.get(UPLOAD_DIRECTORY).resolve(nameFile).toAbsolutePath();
 	}
 
 }

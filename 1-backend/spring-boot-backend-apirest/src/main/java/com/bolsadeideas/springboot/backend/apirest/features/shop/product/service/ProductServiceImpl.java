@@ -79,7 +79,7 @@ public class ProductServiceImpl implements IProductService {
 		//TODO: Elimininar todas las fotos cuando se tenga ese atributo
 		//List<String> images = productDTO.getImages();
 		// images.stream().forEach(image -> uploadService.eliminar(image)));
-		uploadService.eliminar(scene3D);
+		uploadService.delete(scene3D);
 		
 		productRepository.deleteById(id);
 	}

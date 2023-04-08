@@ -216,7 +216,7 @@ public class ProductController {
 
 			String nombreArchivo = null;
 			try {
-				nombreArchivo = uploadService.copiar(archivo);
+				nombreArchivo = uploadService.copy(archivo);
 			} catch (IOException e) {
 				response.put("message", "Error al subir el archivo del producto");
 				response.put("error", e.getMessage().concat(": ").concat(e.getCause().getMessage()));
@@ -228,7 +228,7 @@ public class ProductController {
 			//String nombreFotoAnterior = cliente.getFoto();
 			String nombreFotoAnterior = productDTO.getScene3D();
 			
-			uploadService.eliminar(nombreFotoAnterior);
+			uploadService.delete(nombreFotoAnterior);
 						
 //			cliente.setFoto(nombreArchivo);
 			productDTO.setScene3D(nombreArchivo);
@@ -253,7 +253,7 @@ public class ProductController {
 		Resource recurso = null;
 		
 		try {
-			recurso = uploadService.cargar(nombreFoto);
+			recurso = uploadService.load(nombreFoto);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
