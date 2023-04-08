@@ -40,8 +40,6 @@ public class ProductServiceImpl implements IProductService {
 		return result;
 	}
 	
-	//TODO: MODIFICAR EL PRODUCTDTO EN LOS DEMAS (CAMBIARLO TAMBIEN EN INTERFACE)
-
 	@Override
 	@Transactional(readOnly =true)
 	public Page<ProductDTO> findAll(Pageable pageable) {
