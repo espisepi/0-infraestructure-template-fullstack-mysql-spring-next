@@ -213,56 +213,62 @@ public class ProductController {
 	}
 	
 	//@Secured({"ROLE_ADMIN", "ROLE_USER"})
-//	@PostMapping("/upload")
-//	public ResponseEntity<?> upload(@RequestParam("file") MultipartFile archivo, @RequestParam("id") Long id){
-//		Map<String, Object> response = new HashMap<>();
-//		
-//		Cliente cliente = clienteService.findById(id);
-//		
-//		if(!archivo.isEmpty()) {
-//
-//			String nombreArchivo = null;
-//			try {
-//				nombreArchivo = uploadService.copiar(archivo);
-//			} catch (IOException e) {
-//				response.put("mensaje", "Error al subir la imagen del cliente");
-//				response.put("error", e.getMessage().concat(": ").concat(e.getCause().getMessage()));
-//				return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-//			}
-//			
-//			String nombreFotoAnterior = cliente.getFoto();
-//			
-//			uploadService.eliminar(nombreFotoAnterior);
-//						
+	@PostMapping("/upload")
+	public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile archivo, @RequestParam("id") Long id){
+		Map<String, Object> response = new HashMap<>();
+		
+		//Cliente cliente = clienteService.findById(id);
+		ProductDTO productDTO = productService.findById(id);
+		
+		if(!archivo.isEmpty()) {
+
+			String nombreArchivo = null;
+			try {
+				nombreArchivo = uploadService.copiar(archivo);
+			} catch (IOException e) {
+				response.put("message", "Error al subir el archivo del producto");
+				response.put("error", e.getMessage().concat(": ").concat(e.getCause().getMessage()));
+				return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+			
+			//String nombreFotoAnterior = cliente.getFoto();
+			String nombreFotoAnterior = productDTO.getScene3D();
+			
+			uploadService.eliminar(nombreFotoAnterior);
+						
 //			cliente.setFoto(nombreArchivo);
-//			
+			productDTO.setScene3D(nombreArchivo);
+			
 //			clienteService.save(cliente);
-//			
-//			response.put("cliente", cliente);
-//			response.put("mensaje", "Has subido correctamente la imagen: " + nombreArchivo);
-//			
-//		}
-//		
-//		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
-//	}
+			productService.save(productDTO);
+			
+			//response.put("cliente", cliente);
+			response.put("product", productDTO);
+			
+			response.put("message", "Has subido correctamente el archivo: " + nombreArchivo);
+			
+		}
+		
+		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
+	}
 	
 	
-//	@GetMapping("/uploads/img/{nombreFoto:.+}")
-//	public ResponseEntity<Resource> verFoto(@PathVariable String nombreFoto){
-//
-//		Resource recurso = null;
-//		
-//		try {
-//			recurso = uploadService.cargar(nombreFoto);
-//		} catch (MalformedURLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		HttpHeaders cabecera = new HttpHeaders();
-//		cabecera.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + recurso.getFilename() + "\"");
-//		
-//		return new ResponseEntity<Resource>(recurso, cabecera, HttpStatus.OK);
-//	}
+	@GetMapping("/uploads/img/{nombreFoto:.+}")
+	public ResponseEntity<Resource> verFoto(@PathVariable String nombreFoto){
+
+		Resource recurso = null;
+		
+		try {
+			recurso = uploadService.cargar(nombreFoto);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		
+		HttpHeaders cabecera = new HttpHeaders();
+		cabecera.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + recurso.getFilename() + "\"");
+		
+		return new ResponseEntity<Resource>(recurso, cabecera, HttpStatus.OK);
+	}
 	
 
 }
