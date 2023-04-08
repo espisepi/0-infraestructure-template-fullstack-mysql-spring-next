@@ -16,18 +16,22 @@ import com.bolsadeideas.springboot.backend.apirest.features.shop.product.dto.Pro
 import com.bolsadeideas.springboot.backend.apirest.features.shop.product.mapper.ProductModelToProductDTOMapper;
 import com.bolsadeideas.springboot.backend.apirest.features.shop.product.model.ProductModel;
 import com.bolsadeideas.springboot.backend.apirest.features.shop.product.repository.IProductRepository;
+import com.bolsadeideas.springboot.backend.apirest.models.services.IUploadFileService;
 
 @Service
 public class ProductServiceImpl implements IProductService {
+	
 	
 	private Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
 	
 	@Autowired
 	private ProductModelToProductDTOMapper productModelToProductDTOMapper;
 
-	
 	@Autowired
 	private IProductRepository productRepository;
+	
+	@Autowired
+	private IUploadFileService uploadService;
 	
 	
 	
@@ -69,6 +73,14 @@ public class ProductServiceImpl implements IProductService {
 	@Override
 	@Transactional
 	public void delete(Long id) {
+		ProductDTO productDTO = this.findById(id);
+		String scene3D = productDTO.getScene3D();
+		
+		//TODO: Elimininar todas las fotos cuando se tenga ese atributo
+		//List<String> images = productDTO.getImages();
+		// images.stream().forEach(image -> uploadService.eliminar(image)));
+		uploadService.eliminar(scene3D);
+		
 		productRepository.deleteById(id);
 	}
 	

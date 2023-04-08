@@ -30,6 +30,15 @@
 6) Error: El convertidor falla y devuelve todos los atributos del DTO en null
 6) Solucion: el fallo era porque no estaba instalado lombok en el eclipse (a parte de tener que añadirlo en el pom.xml). y por lo tanto no se generaban los metodos getter y setter y el convertidor convertia sin ningun atributo porque no existia ningun metodo getter y setter para los atributos.
 
+7) Error: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long';
+7) Solucion: Estaba haciendo una llamada GET en vez de POST en el postman.
+
+8) Error Unauthorized POSTMAN: "error": "unauthorized",
+    "error_description": "Full authentication is required to access this resource"
+8) Solucion:
+	8.1) Asegurarse de que en ResourceServerConfig.java estan definidos los enlaces permitidos tanto para GET, POST, UPDATE, DELETE, con el metodo antMatchers. (Aqui tenia yo el problema, que no defini como permitAll los metodos POST ni DELETE ni PUT, solamente los puse GET)
+	8.2) Asegurarse de que en postman esta bien añadido el token con la palabra Bearer y esas mierdas.
+
 =========================== AUTENTICACION POSTMAN ==================
 
 1 - Ruta -> POST localhost:8080/oauth/token

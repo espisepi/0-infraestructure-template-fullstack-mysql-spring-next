@@ -192,14 +192,6 @@ public class ProductController {
 		Map<String, Object> response = new HashMap<>();
 		
 		try {
-			ProductDTO productDTO = productService.findById(id);
-			String scene3D = productDTO.getScene3D();
-			
-			//TODO: Elimininar todas las fotos cuando se tenga ese atributo
-			//List<String> images = productDTO.getImages();
-			// images.stream().forEach(image -> uploadService.eliminar(image)));
-			uploadService.eliminar(scene3D);
-			
 		    productService.delete(id);
 		} catch (DataAccessException e) {
 			response.put("message", "Error al eliminar el producto de la base de datos");
@@ -230,6 +222,8 @@ public class ProductController {
 				response.put("error", e.getMessage().concat(": ").concat(e.getCause().getMessage()));
 				return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
+			
+			//TODO: Todo esto de abajo y parte de arriba meterlo en productService como un metodo uploadScene3D(MultipartFile file) 
 			
 			//String nombreFotoAnterior = cliente.getFoto();
 			String nombreFotoAnterior = productDTO.getScene3D();
