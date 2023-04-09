@@ -1,6 +1,7 @@
 package com.bolsadeideas.springboot.backend.apirest.features.shop.product.service;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -8,6 +9,7 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -43,7 +45,9 @@ public class ProductServiceImpl implements IProductService {
 	
 	
 	/* Custom methods */
-	
+
+	@Override
+	@Transactional(readOnly =true)
 	public Page<ProductDTO> findAll(Integer page, Integer numberOfProductsToReturn) {
 		Pageable pageable = PageRequest.of(page, numberOfProductsToReturn);
 		Page<ProductDTO> result = this.findAll(pageable);
@@ -73,9 +77,33 @@ public class ProductServiceImpl implements IProductService {
 		
 		return productDTO;
 	}
+	
+	@Override
+	@Transactional
+	public ProductDTO update(ProductDTO newProductDTO, Long id) {
+		
+		ProductDTO productDTOInDatabase = this.findById(id);
+		ProductDTO productDTOUpdated = null;
+		
+		if (productDTOInDatabase == null) {
+			return null;
+		}
+		
+		productDTOInDatabase.setDescription(newProductDTO.getDescription());
+		productDTOInDatabase.setImages(newProductDTO.getImages());
+		productDTOInDatabase.setName(newProductDTO.getName());
+		productDTOInDatabase.setNumberOfStock(newProductDTO.getNumberOfStock());
+		productDTOInDatabase.setPrice(newProductDTO.getPrice());
+		productDTOInDatabase.setScene3D(newProductDTO.getScene3D());
+		productDTOInDatabase.setSlug(newProductDTO.getSlug());
 
-	
-	
+		productDTOUpdated = this.save(productDTOInDatabase);
+
+		return productDTOUpdated;
+
+		
+	}
+
 	
 	
 	/* Classic methods */

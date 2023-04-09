@@ -107,6 +107,7 @@ public class ProductController {
 		ProductDTO productNew = null;
 		Map<String, Object> response = new HashMap<>();
 		
+		// Validacion de errores del formulario
 		if(bindingResult.hasErrors()) {
 			List<String> errors = bindingResult.getFieldErrors().stream().map(
 					err -> "El campo '" + err.getField() + "' " + err.getDefaultMessage()
@@ -115,6 +116,7 @@ public class ProductController {
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
 		}
 		
+		// Guardar el nuevo producto creado
 		try {
 			productNew = productService.save(productDTO);
 		} catch (DataAccessException e) {
@@ -132,16 +134,12 @@ public class ProductController {
 	@PutMapping("/{id}")
 	public ResponseEntity<?> updateProduct(@Valid @RequestBody ProductDTO productDTO, BindingResult result, @PathVariable Long id) {
 
-		//Cliente clienteActual = clienteService.findById(id);
-		ProductDTO productDTOInDatabase = productService.findById(id);
-
-		//Cliente clienteUpdated = null;
 		ProductDTO productUpdated = null;
 
 		Map<String, Object> response = new HashMap<>();
-
+		
+		// Validacion de errores del formulario
 		if(result.hasErrors()) {
-
 			List<String> errors = result.getFieldErrors()
 					.stream()
 					.map(err -> "El campo '" + err.getField() +"' "+ err.getDefaultMessage())
@@ -151,30 +149,21 @@ public class ProductController {
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
 		}
 		
-		if (productDTOInDatabase == null) {
-			response.put("message", "Error: no se pudo editar, el producto ID: "
-					.concat(id.toString().concat(" no existe en la base de datos!")));
-			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
-		}
-
+		// Actualizar el producto
 		try {
-
-			productDTOInDatabase.setDescription(productDTO.getDescription());
-			productDTOInDatabase.setImages(productDTO.getImages());
-			productDTOInDatabase.setName(productDTO.getName());
-			productDTOInDatabase.setNumberOfStock(productDTO.getNumberOfStock());
-			productDTOInDatabase.setPrice(productDTO.getPrice());
-			productDTOInDatabase.setScene3D(productDTO.getScene3D());
-			productDTOInDatabase.setSlug(productDTO.getSlug());
-
-			//clienteUpdated = clienteService.save(clienteActual);
-			productUpdated = productService.save(productDTOInDatabase);
-
+			productUpdated = productService.update(productDTO, id);
 		} catch (DataAccessException e) {
 			response.put("message", "Error al actualizar el producto en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+		
+		if (productUpdated == null) {
+			response.put("message", "Error: no se pudo editar, el producto ID: "
+					.concat(id.toString().concat(" no existe en la base de datos!")));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+
 
 		response.put("message", "El producto ha sido actualizado con éxito!");
 		response.put("product", productUpdated);
