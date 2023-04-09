@@ -1,6 +1,8 @@
 package com.bolsadeideas.springboot.backend.apirest.features.shop.product.service;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
@@ -9,8 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bolsadeideas.springboot.backend.apirest.features.shop.product.controller.ProductController;
 import com.bolsadeideas.springboot.backend.apirest.features.shop.product.dto.ProductDTO;
@@ -44,6 +49,31 @@ public class ProductServiceImpl implements IProductService {
 		Page<ProductDTO> result = this.findAll(pageable);
 		return result;
 	}
+	
+	
+	@Override
+	@Transactional
+	public ProductDTO uploadScene3D(MultipartFile file, Long id) throws IOException {
+		
+		// Guardamos el archivo
+		String nameFile = uploadService.copy(file);
+		
+		// Obtenemos el producto a modificar
+		ProductDTO productDTO = this.findById(id);
+		
+		// Borramos el archivo anterior del producto a modificar
+		String namePreviousFile = productDTO.getScene3D();	
+		uploadService.delete(namePreviousFile);
+		
+		// Anadimos la ruta del archivo nuevo al producto a modificar
+		productDTO.setScene3D(nameFile);
+		this.save(productDTO);
+		
+
+		
+		return productDTO;
+	}
+
 	
 	
 	

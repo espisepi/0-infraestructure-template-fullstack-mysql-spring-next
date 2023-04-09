@@ -204,62 +204,43 @@ public class ProductController {
 	
 	//@Secured({"ROLE_ADMIN", "ROLE_USER"})
 	@PostMapping("/upload")
-	public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile archivo, @RequestParam("id") Long id){
+	public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile file, @RequestParam("id") Long id){
+		
 		Map<String, Object> response = new HashMap<>();
+		ProductDTO productDTOModified = null;
 		
-		//Cliente cliente = clienteService.findById(id);
-		ProductDTO productDTO = productService.findById(id);
-		
-		if(!archivo.isEmpty()) {
-
-			String nombreArchivo = null;
+		if(!file.isEmpty()) {
 			try {
-				nombreArchivo = uploadService.copy(archivo);
+				productDTOModified = productService.uploadScene3D(file, id);
 			} catch (IOException e) {
 				response.put("message", "Error al subir el archivo del producto");
 				response.put("error", e.getMessage().concat(": ").concat(e.getCause().getMessage()));
 				return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
-			
-			//TODO: Todo esto de abajo y parte de arriba meterlo en productService como un metodo uploadScene3D(MultipartFile file) 
-			
-			//String nombreFotoAnterior = cliente.getFoto();
-			String nombreFotoAnterior = productDTO.getScene3D();
-			
-			uploadService.delete(nombreFotoAnterior);
-						
-//			cliente.setFoto(nombreArchivo);
-			productDTO.setScene3D(nombreArchivo);
-			
-//			clienteService.save(cliente);
-			productService.save(productDTO);
-			
-			//response.put("cliente", cliente);
-			response.put("product", productDTO);
-			
-			response.put("message", "Has subido correctamente el archivo: " + nombreArchivo);
-			
+
+			response.put("product", productDTOModified);
+			response.put("message", "Has subido correctamente el archivo: " + productDTOModified.getScene3D());
 		}
 		
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	
 	
-	@GetMapping("/uploads/img/{nombreFoto:.+}")
-	public ResponseEntity<Resource> verFoto(@PathVariable String nombreFoto){
+	@GetMapping("/uploads/{nameFile:.+}")
+	public ResponseEntity<Resource> getFile(@PathVariable String nameFile){
 
-		Resource recurso = null;
+		Resource resource = null;
 		
 		try {
-			recurso = uploadService.load(nombreFoto);
+			resource = uploadService.load(nameFile);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		
 		HttpHeaders cabecera = new HttpHeaders();
-		cabecera.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + recurso.getFilename() + "\"");
+		cabecera.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"");
 		
-		return new ResponseEntity<Resource>(recurso, cabecera, HttpStatus.OK);
+		return new ResponseEntity<Resource>(resource, cabecera, HttpStatus.OK);
 	}
 	
 
