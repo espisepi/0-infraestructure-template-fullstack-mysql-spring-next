@@ -25,7 +25,7 @@ public class ProductCategoryModelToProductCategoryDTOMapperImpl implements Produ
     }
 
     @Override
-    public ProductCategoryModel productDTOToProductModel(ProductCategoryDTO productCategoryDTO) {
+    public ProductCategoryModel productCategoryDTOToProductCategoryModel(ProductCategoryDTO productCategoryDTO) {
         if ( productCategoryDTO == null ) {
             return null;
         }

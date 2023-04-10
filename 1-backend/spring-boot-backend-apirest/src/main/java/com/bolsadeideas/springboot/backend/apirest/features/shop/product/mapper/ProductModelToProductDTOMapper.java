@@ -9,13 +9,17 @@ import com.bolsadeideas.springboot.backend.apirest.features.shop.product.model.P
 
 
 public interface ProductModelToProductDTOMapper {
+	
+	// Metodos de este convertidor aka mapper ================
 
 	ProductDTO productModelToProductDTO(ProductModel productModel);
 
 	ProductModel productDTOToProductModel(ProductDTO productDTO);
 	
-	ProductCategoryDTO map(ProductCategoryModel value);
+	// Metodos del convertidor aka mapper ProductCategoryModelToProductCategoryDTOMapper (el cual utilizamos en la clase implementacion de esta interfaz) ========
 	
-	ProductCategoryModel map(ProductCategoryDTO value);
+	ProductCategoryDTO productCategoryModelToProductCategoryDTO(ProductCategoryModel value);
+	
+	ProductCategoryModel productCategoryDTOToProductCategoryModel(ProductCategoryDTO value);
 
 }

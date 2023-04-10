@@ -9,6 +9,6 @@ public interface ProductCategoryModelToProductCategoryDTOMapper {
 	
 	ProductCategoryDTO productCategoryModelToProductCategoryDTO(ProductCategoryModel productCategoryModel);
 
-	ProductCategoryModel productDTOToProductModel(ProductCategoryDTO productCategoryDTO);
+	ProductCategoryModel productCategoryDTOToProductCategoryModel(ProductCategoryDTO productCategoryDTO);
 
 }

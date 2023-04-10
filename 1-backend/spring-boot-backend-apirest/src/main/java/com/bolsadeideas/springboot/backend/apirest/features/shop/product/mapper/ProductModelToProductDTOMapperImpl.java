@@ -3,6 +3,7 @@ package com.bolsadeideas.springboot.backend.apirest.features.shop.product.mapper
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.bolsadeideas.springboot.backend.apirest.features.shop.product.dto.ProductCategoryDTO;
@@ -12,6 +13,10 @@ import com.bolsadeideas.springboot.backend.apirest.features.shop.product.model.P
 
 @Component
 public class ProductModelToProductDTOMapperImpl implements ProductModelToProductDTOMapper {
+	
+	@Autowired
+	private ProductCategoryModelToProductCategoryDTOMapper productCategoryModelToProductCategoryDTOMapper;
+	
 
     @Override
     public ProductDTO productModelToProductDTO(ProductModel productModel) {
@@ -65,38 +70,6 @@ public class ProductModelToProductDTOMapperImpl implements ProductModelToProduct
         return productModel;
     }
 
-    @Override
-    public ProductCategoryDTO map(ProductCategoryModel value) {
-        if ( value == null ) {
-            return null;
-        }
-
-        ProductCategoryDTO productCategoryDTO = new ProductCategoryDTO();
-
-        productCategoryDTO.setCreatedAt( value.getCreatedAt() );
-        productCategoryDTO.setId( value.getId() );
-        productCategoryDTO.setName( value.getName() );
-        productCategoryDTO.setUpdatedAt( value.getUpdatedAt() );
-
-        return productCategoryDTO;
-    }
-
-    @Override
-    public ProductCategoryModel map(ProductCategoryDTO value) {
-        if ( value == null ) {
-            return null;
-        }
-
-        ProductCategoryModel productCategoryModel = new ProductCategoryModel();
-
-        productCategoryModel.setCreatedAt( value.getCreatedAt() );
-        productCategoryModel.setId( value.getId() );
-        productCategoryModel.setName( value.getName() );
-        productCategoryModel.setUpdatedAt( value.getUpdatedAt() );
-
-        return productCategoryModel;
-    }
-
     protected List<ProductCategoryDTO> productCategoryModelListToProductCategoryDTOList(List<ProductCategoryModel> list) {
         if ( list == null ) {
             return null;
@@ -104,7 +77,7 @@ public class ProductModelToProductDTOMapperImpl implements ProductModelToProduct
 
         List<ProductCategoryDTO> list1 = new ArrayList<ProductCategoryDTO>( list.size() );
         for ( ProductCategoryModel productCategoryModel : list ) {
-            list1.add( map( productCategoryModel ) );
+            list1.add( productCategoryModelToProductCategoryDTO( productCategoryModel ) );
         }
 
         return list1;
@@ -117,10 +90,29 @@ public class ProductModelToProductDTOMapperImpl implements ProductModelToProduct
 
         List<ProductCategoryModel> list1 = new ArrayList<ProductCategoryModel>( list.size() );
         for ( ProductCategoryDTO productCategoryDTO : list ) {
-            list1.add( map( productCategoryDTO ) );
+            list1.add( productCategoryDTOToProductCategoryModel( productCategoryDTO ) );
         }
 
         return list1;
+    }
+    
+    @Override
+    public ProductCategoryDTO productCategoryModelToProductCategoryDTO(ProductCategoryModel value) {
+        if ( value == null ) {
+            return null;
+        }
+
+        return productCategoryModelToProductCategoryDTOMapper.productCategoryModelToProductCategoryDTO(value);
+    }
+    
+
+    @Override
+    public ProductCategoryModel productCategoryDTOToProductCategoryModel(ProductCategoryDTO value) {
+        if ( value == null ) {
+            return null;
+        }
+
+    	return productCategoryModelToProductCategoryDTOMapper.productCategoryDTOToProductCategoryModel(value);
     }
 }
 

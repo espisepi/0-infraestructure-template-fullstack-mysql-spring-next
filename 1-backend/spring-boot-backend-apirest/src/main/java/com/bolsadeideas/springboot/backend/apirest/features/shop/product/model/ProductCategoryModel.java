@@ -2,7 +2,6 @@ package com.bolsadeideas.springboot.backend.apirest.features.shop.product.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
