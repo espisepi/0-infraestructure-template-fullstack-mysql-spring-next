@@ -1,6 +1,21 @@
 
 
+
+
+
+/* ============ POPULATES espisepi aka sepinaco aka joseangel ====================      */
+
+
+/* Creamos las categorias de los productos */
+INSERT INTO product_category(id, name, created_at) VALUES(1,'categoria cenicero', NOW());
+
+/* Creamos los productos */
 INSERT INTO product (id, slug, name, description, created_at) VALUES(1,'product-1-test', 'product 1 name', 'description product 1' ,  NOW());
+INSERT INTO product (id, slug, name, description, created_at) VALUES(2,'product-2-test', 'product 2 name', 'description product 2' ,  NOW());
+
+
+/* Creamos la relacion entre los productos y las categorias de los productos */
+INSERT INTO product_product_category_relation(product_id, product_category_id) VALUES(1,1);
 
 
 

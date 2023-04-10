@@ -29,6 +29,7 @@
 
 6) Error: El convertidor falla y devuelve todos los atributos del DTO en null
 6) Solucion: el fallo era porque no estaba instalado lombok en el eclipse (a parte de tener que añadirlo en el pom.xml). y por lo tanto no se generaban los metodos getter y setter y el convertidor convertia sin ningun atributo porque no existia ningun metodo getter y setter para los atributos.
+6) Solucion 2: Si la solucion anterior no funciona, inspeccionar la implementacion de la clase que realiza MapStruct sobre nuesta interface mapper entre dos POJOs(Ej: ProductModel y ProductDTO).
 
 7) Error: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long';
 7) Solucion: Estaba haciendo una llamada GET en vez de POST en el postman.
@@ -38,6 +39,16 @@
 8) Solucion:
 	8.1) Asegurarse de que en ResourceServerConfig.java estan definidos los enlaces permitidos tanto para GET, POST, UPDATE, DELETE, con el metodo antMatchers. (Aqui tenia yo el problema, que no defini como permitAll los metodos POST ni DELETE ni PUT, solamente los puse GET)
 	8.2) Asegurarse de que en postman esta bien añadido el token con la palabra Bearer y esas mierdas.
+
+9) Error: No se inserta la relacion de product categories bidireccional en el base de datos, y tampoco se mapea la relacion correctamente :(
+9) Solucion: No se insertaba en la base de datos porque en el model de la clase java (ProductCategoryModel) no puse atributos que utilizaba en el import.sql al añadir valores a esa tabla (concretamente el atributo created_at no estaba definido en la clase java y lo utilizaba en el sql para añadir un productCategory, y como no existia ese atributo en la tabla no se añádia nunca)
+ 
+ 10) Error: ProductCategoryModel to ProductCategoryDTO no se mapeaban con mapStruct sus atributos
+ 10) Solucion: Eliminar las anotaciones @Getter y @Setter de lombok en ProductCategoryDTO y escribir los getter y setter en la clas ProductCategoryDTO. Con eso ya funcionaba el mapeo.
+
+===================== BIBLIOGRAFIA INTERESANTE =========================
+
+- Relaciones unidireccionales vs bidireccionales : https://www.arquitecturajava.com/java-relaciones-unidireccionales-o-bidireccionales/
 
 =========================== AUTENTICACION POSTMAN ==================
 
