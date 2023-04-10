@@ -9,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.bolsadeideas.springboot.backend.apirest.features.shop.product.dto.ProductDTO;
-import com.bolsadeideas.springboot.backend.apirest.features.shop.product.model.ProductModel;
 
 
 public interface ProductService {
@@ -18,9 +17,10 @@ public interface ProductService {
 	
 	public Page<ProductDTO> findAll(Integer page, Integer numberOfProductsToReturn);
 	
+	public ProductDTO update(ProductDTO newProductDTO, Long id) throws DataAccessException;
+	
 	public ProductDTO uploadScene3D(MultipartFile file, Long id) throws IOException ;
 	
-	public ProductDTO update(ProductDTO newProductDTO, Long id) throws DataAccessException;
 	
 	/* Classic methods  */
 	
