@@ -27,7 +27,7 @@ import com.bolsadeideas.springboot.backend.apirest.features.shop.product.reposit
 import com.bolsadeideas.springboot.backend.apirest.models.services.IUploadFileService;
 
 @Service
-public class ProductServiceImpl implements IProductService {
+public class ProductServiceImpl implements ProductService {
 	
 	
 	private Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);

@@ -12,7 +12,7 @@ import com.bolsadeideas.springboot.backend.apirest.features.shop.product.dto.Pro
 import com.bolsadeideas.springboot.backend.apirest.features.shop.product.model.ProductModel;
 
 
-public interface IProductService {
+public interface ProductService {
 	
 	/* Custom methods */
 	

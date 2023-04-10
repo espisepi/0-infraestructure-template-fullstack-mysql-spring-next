@@ -36,7 +36,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bolsadeideas.springboot.backend.apirest.features.shop.product.dto.ProductDTO;
 import com.bolsadeideas.springboot.backend.apirest.features.shop.product.model.ProductModel;
-import com.bolsadeideas.springboot.backend.apirest.features.shop.product.service.IProductService;
+import com.bolsadeideas.springboot.backend.apirest.features.shop.product.service.ProductService;
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Cliente;
 import com.bolsadeideas.springboot.backend.apirest.models.services.IUploadFileService;
 import com.bolsadeideas.springboot.backend.apirest.models.services.UsuarioService;
@@ -51,7 +51,7 @@ public class ProductController {
 	
 	
 	@Autowired
-	private IProductService productService;
+	private ProductService productService;
 	
 	@Autowired
 	private IUploadFileService uploadService;
