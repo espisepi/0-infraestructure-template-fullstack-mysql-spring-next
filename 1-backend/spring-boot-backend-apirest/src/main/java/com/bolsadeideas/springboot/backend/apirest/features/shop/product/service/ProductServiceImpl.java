@@ -23,7 +23,7 @@ import com.bolsadeideas.springboot.backend.apirest.features.shop.product.control
 import com.bolsadeideas.springboot.backend.apirest.features.shop.product.dto.ProductDTO;
 import com.bolsadeideas.springboot.backend.apirest.features.shop.product.mapper.ProductModelToProductDTOMapper;
 import com.bolsadeideas.springboot.backend.apirest.features.shop.product.model.ProductModel;
-import com.bolsadeideas.springboot.backend.apirest.features.shop.product.repository.IProductRepository;
+import com.bolsadeideas.springboot.backend.apirest.features.shop.product.repository.ProductRepository;
 import com.bolsadeideas.springboot.backend.apirest.models.services.IUploadFileService;
 
 @Service
@@ -36,7 +36,7 @@ public class ProductServiceImpl implements IProductService {
 	private ProductModelToProductDTOMapper productModelToProductDTOMapper;
 
 	@Autowired
-	private IProductRepository productRepository;
+	private ProductRepository productRepository;
 	
 	@Autowired
 	private IUploadFileService uploadService;

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.bolsadeideas.springboot.backend.apirest.features.shop.product.model.ProductModel;
 
 @Repository
-public interface IProductRepository extends JpaRepository<ProductModel, Long>{
+public interface ProductRepository extends JpaRepository<ProductModel, Long>{
 
 }
