@@ -50,6 +50,10 @@
 
 - Relaciones unidireccionales vs bidireccionales : https://www.arquitecturajava.com/java-relaciones-unidireccionales-o-bidireccionales/
 
+- generic CRUD (usado en el proyecto) : https://github.com/IllusiveNetworks-Labs/spring-generic-crud/tree/master/src/main/java/illusive/networks
+
+- generic CRUD 2 (usado en el proyecto) : https://github.com/leonardombr/Generic-CRUD-Spring-Boot/tree/master/src/main/java/com/crud/generic
+
 =========================== AUTENTICACION POSTMAN ==================
 
 1 - Ruta -> POST localhost:8080/oauth/token
