@@ -1,3 +1,5 @@
+// Source Code: https://github.com/leonardombr/Generic-CRUD-Spring-Boot/blob/master/src/main/java/com/crud/generic/entity/baseEntity/BaseEntity.java
+
 package com.bolsadeideas.springboot.backend.apirest.models.entity;
 
 import java.io.Serializable;
@@ -10,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class BaseEntity implements Serializable {
+public abstract class BaseEntity implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
