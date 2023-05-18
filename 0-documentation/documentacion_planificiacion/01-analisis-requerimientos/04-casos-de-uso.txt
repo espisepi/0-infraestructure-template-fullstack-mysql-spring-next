@@ -1,0 +1,25 @@
+1 - Registro de usuario: El usuario se registra en la tienda online, proporcionando su información personal y de contacto.
+
+2 - Búsqueda de productos: El usuario busca productos en la tienda online, utilizando palabras clave o filtros de búsqueda.
+
+3 - Visualización de detalles del producto: El usuario ve los detalles del producto, como su descripción, precio, imágenes, y opiniones de otros usuarios.
+
+4 - Agregar producto al carrito: El usuario agrega uno o varios productos al carrito de compras.
+
+5 - Modificación del carrito: El usuario puede modificar el contenido del carrito, agregando o eliminando productos, o cambiando la cantidad de productos.
+
+6 - Pago de productos: El usuario realiza el pago de los productos seleccionados, utilizando diferentes opciones de pago.
+
+7 - Confirmación de compra: El usuario recibe una confirmación de compra, que incluye información sobre los productos comprados y el tiempo estimado de envío.
+
+8 - Seguimiento del pedido: El usuario puede realizar un seguimiento del pedido, viendo su estado actual y el tiempo estimado de entrega.
+
+9 - Devolución de producto: El usuario puede solicitar la devolución del producto, si este no cumple con las expectativas o presenta defectos.
+
+10 - Soporte al cliente: El usuario puede contactar al soporte técnico de la tienda online para resolver dudas o problemas relacionados con su compra.
+
+11 - Gestión de inventario: El administrador de la tienda puede agregar, eliminar o actualizar productos en el catálogo de la tienda online.
+
+12 - Gestión de clientes: El administrador de la tienda puede gestionar la información de los clientes, como su información personal y sus pedidos.
+
+13 - Generación de reportes: El administrador de la tienda puede generar reportes de ventas, inventario, y otros aspectos relevantes del negocio.

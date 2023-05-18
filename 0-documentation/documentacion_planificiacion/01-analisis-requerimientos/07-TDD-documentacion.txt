@@ -1,0 +1,17 @@
+TDD (Test Driven Development) es una metodología de desarrollo de software en la que se escriben primero las pruebas automatizadas para luego escribir el código que las haga pasar. En el contexto de una tienda online, el TDD podría aplicarse de la siguiente manera:
+
+1 - Identificar las funcionalidades clave: en primer lugar, se identificarían las funcionalidades clave de la tienda online, como la búsqueda de productos, la selección de productos, la realización de pagos, etc.
+
+2 - Escribir las pruebas: a continuación, se escribirían las pruebas automatizadas para cada una de estas funcionalidades. Por ejemplo, para la funcionalidad de búsqueda de productos se podría escribir una prueba que compruebe que se devuelven los resultados correctos cuando se busca por un término específico.
+
+3 - Ejecutar las pruebas: una vez que se han escrito las pruebas, se ejecutan para comprobar que fallan, ya que aún no se ha implementado el código que las haga pasar.
+
+4 - Escribir el código: a continuación, se escribe el código que hace pasar las pruebas automatizadas. Es importante destacar que el objetivo es escribir el mínimo código necesario para hacer pasar la prueba.
+
+5 - Ejecutar las pruebas de nuevo: después de escribir el código, se ejecutan las pruebas automatizadas de nuevo para comprobar que ahora pasan.
+
+6 - Refactorizar el código: una vez que se han pasado las pruebas, se puede refactorizar el código para mejorar su legibilidad, mantenibilidad y eficiencia.
+
+Repetir el proceso: este proceso se repite para cada una de las funcionalidades clave de la tienda online, lo que permite asegurar que el código funciona correctamente y que se cumplen las especificaciones.
+
+En resumen, el TDD es una metodología de desarrollo de software que permite garantizar la calidad del código y minimizar los errores y problemas de la tienda online. Al aplicar esta metodología, se asegura que cada funcionalidad se ha desarrollado correctamente y que se cumplen los requisitos especificados.

@@ -1,0 +1,36 @@
+Aquí te presento un ejemplo de un documento de pruebas unitarias para una tienda online:
+
+# Documento de Pruebas Unitarias para una Tienda Online
+
+## Introducción
+El propósito de este documento es describir el enfoque, la metodología y los casos de prueba para las pruebas unitarias de la tienda online. Las pruebas unitarias son un tipo de prueba automatizada que se centran en verificar la funcionalidad de componentes individuales de la aplicación.
+
+## Enfoque
+El enfoque de las pruebas unitarias para la tienda online será de abajo hacia arriba (bottom-up). Se comenzará probando los componentes de menor nivel, como las clases y los métodos de las clases, y se irá subiendo hasta probar los componentes de mayor nivel, como los controladores y los servicios.
+
+## Metodología
+Se utilizará la metodología de TDD (Desarrollo Dirigido por Pruebas) para las pruebas unitarias. El objetivo de esta metodología es escribir pruebas antes de escribir el código real, lo que garantiza que el código esté diseñado para ser fácilmente probado y que se cubran todos los casos de prueba.
+
+## Herramientas
+Se utilizarán las siguientes herramientas para las pruebas unitarias:
+- JUnit como framework de pruebas para el backend
+- Jest y Enzyme como frameworks de pruebas para el frontend
+
+## Casos de prueba
+Se describen a continuación los casos de prueba para los principales componentes de la tienda online.
+
+### Clases y métodos del backend
+Se probarán las siguientes clases y métodos del backend:
+- Clase `Product`: Se probará el constructor y los métodos `get` y `set` para todas las propiedades de la clase, como `id`, `name`, `description`, `price`, `category`, etc.
+- Clase `Cart`: Se probará el constructor y los métodos `get`, `addProduct`, `removeProduct` y `getTotalPrice`.
+- Servicio `ProductService`: Se probará el método `getAllProducts`, que debería devolver una lista de todos los productos disponibles en la tienda.
+
+### Componentes del frontend
+Se probarán los siguientes componentes del frontend:
+- Componente `ProductList`: Se probará que la lista de productos se muestre correctamente en la página y que se pueda hacer clic en cada producto para ver su detalle.
+- Componente `ProductDetail`: Se probará que los detalles del producto se muestren correctamente en la página y que se pueda agregar el producto al carrito de compras.
+- Componente `Cart`: Se probará que los productos se muestren correctamente en el carrito de compras y que se pueda eliminar un producto del carrito.
+- Componente `Checkout`: Se probará que el proceso de pago funcione correctamente y que se muestre un mensaje de confirmación después de completar la transacción.
+
+## Conclusiones
+La realización de pruebas unitarias en la tienda online permitirá detectar errores y fallos en el código antes de que se produzcan en la producción. La metodología TDD y las herramientas de pruebas seleccionadas garantizarán que las pruebas sean completas y efectivas.

@@ -1,0 +1,17 @@
+1 - Registro de usuarios: Permite que los usuarios se registren en la tienda online y creen una cuenta de usuario.
+
+2 - Búsqueda de productos: Permite a los usuarios buscar productos por nombre, categoría, precio u otras características.
+
+3 - Catálogo de productos: Muestra los productos disponibles en la tienda online, con detalles como precio, descripción, imágenes y opiniones de otros usuarios.
+
+4 - Carrito de compras: Permite a los usuarios seleccionar y agregar productos al carrito de compras, y realizar cambios en la cantidad o eliminar productos antes de finalizar la compra.
+
+5 - Proceso de pago: Permite a los usuarios realizar el pago de sus compras mediante diferentes opciones de pago, como tarjeta de crédito, PayPal o transferencia bancaria.
+
+6 - Administración de pedidos: Permite a los usuarios ver el estado de sus pedidos, como confirmación de compra, envío, entrega o devolución.
+
+7 - Gestión de inventario: Permite a los administradores de la tienda gestionar el stock de productos, actualizar la información de precios y promociones, y gestionar las órdenes de compra.
+
+8 - Gestión de clientes: Permite a los administradores de la tienda gestionar la información de los clientes, como el registro de sus datos personales, sus pedidos y su historial de compras.
+
+9 - Soporte al cliente: Permite a los usuarios contactar al soporte técnico de la tienda para resolver dudas o problemas relacionados con su compra o cuenta de usuario.

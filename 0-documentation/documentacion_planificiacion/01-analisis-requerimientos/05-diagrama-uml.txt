@@ -1,0 +1,19 @@
+El diagrama incluye las siguientes entidades y relaciones:
+
+- Usuario: representa a un usuario de la tienda online, que puede tener una cuenta registrada para realizar compras. Puede buscar productos, agregarlos al carrito de compras, pagarlos, etc.
+
+- Administrador: representa a un administrador de la tienda online, que tiene acceso a funcionalidades adicionales como la gestión del catálogo de productos, la gestión de clientes, la generación de reportes, etc.
+
+- Producto: representa un producto en la tienda online, que tiene características como el nombre, descripción, precio, imágenes, etc.
+
+- Carrito de compras: representa el carrito de compras de un usuario, que puede contener uno o varios productos.
+
+- Pedido: representa un pedido realizado por un usuario, que incluye información sobre los productos comprados, la forma de pago, la dirección de envío, etc.
+
+- Proveedor de pagos: representa un proveedor de servicios de pago, como una pasarela de pagos o un proveedor de tarjetas de crédito.
+
+- Proveedor de envío: representa un proveedor de servicios de envío, que se encarga de entregar los productos comprados por los usuarios.
+
+El diagrama muestra las relaciones entre estas entidades, como la relación de herencia entre Usuario y Administrador, la relación de asociación entre Usuario y Carrito de compras, y la relación de dependencia entre Pedido y Proveedor de pagos y envío.
+
+Es importante destacar que este es solo un ejemplo de diagrama UML para una tienda online, y que pueden existir variaciones según las necesidades específicas del negocio y los usuarios.

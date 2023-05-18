@@ -1,0 +1,5 @@
+- 26/04/23 :
+  -- (Mucho jaleo, utilizo gedit y formato txt) Aprender Markdown para realizar documentacion del proyecto
+  -- Leer angular documentacion para ir aprendiendo angular
+  -- Planificar el proyecto tienda julipichan (usar chatgpt como ayuda para documentacion)
+  -- Desarrollo backend y frontend de mis proyectos: Aplicaremos TDD (Test Driven Development)

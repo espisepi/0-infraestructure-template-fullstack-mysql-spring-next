@@ -1,0 +1,83 @@
+============ TEST END-TO-END ======================
+
+Un test end-to-end en React es una prueba que verifica que todas las partes de una aplicación funcionan correctamente juntas, incluyendo el servidor, la base de datos y el frontend. Estas pruebas se pueden realizar utilizando herramientas como Cypress o Selenium.
+
+A continuación, se presenta un ejemplo de cómo se podría escribir un test end-to-end utilizando Cypress. Supongamos que queremos escribir un test para una aplicación de lista de tareas sencilla que permite a los usuarios crear y eliminar tareas. La aplicación está construida con React y utiliza una API REST para interactuar con la base de datos.
+
+El test podría ser algo así:
+
+```javascript
+describe('Lista de tareas', () => {
+  beforeEach(() => {
+    cy.visit('/');
+  });
+
+  it('debería permitir crear y eliminar tareas', () => {
+    const tarea = 'Comprar leche';
+    cy.get('input[type="text"]').type(tarea);
+    cy.get('button[type="submit"]').click();
+    cy.contains(tarea).should('be.visible');
+
+    cy.contains(tarea)
+      .parent()
+      .find('button')
+      .click({ force: true });
+
+    cy.contains(tarea).should('not.exist');
+  });
+});
+```
+
+En este test, se utiliza la función `cy.visit` de Cypress para abrir la aplicación en el navegador. Luego, se simula la interacción del usuario con la aplicación, ingresando una tarea en el campo de texto, haciendo clic en el botón para agregar la tarea y verificando que la tarea se muestra en la lista.
+
+Después, se busca la tarea en la lista y se simula la interacción del usuario para eliminarla, haciendo clic en el botón correspondiente. Por último, se verifica que la tarea ya no se muestra en la lista.
+
+Este test verifica que la aplicación funciona correctamente tanto en el frontend como en el backend, asegurándose de que las tareas se puedan crear y eliminar correctamente.
+
+En resumen, un test end-to-end en React es una prueba que verifica que todas las partes de la aplicación funcionan correctamente juntas, incluyendo el servidor, la base de datos y el frontend. Estas pruebas se pueden realizar utilizando herramientas como Cypress o Selenium, y son esenciales para asegurarse de que la aplicación funciona correctamente en su conjunto.
+
+
+
+
+
+
+========= TEST COMPONENTE ======================
+
+Un test de componente en React es una prueba que verifica que un componente de React funciona correctamente en diferentes escenarios. Estos tests se pueden realizar utilizando frameworks de pruebas como Jest y Enzyme.
+
+A continuación, se presenta un ejemplo de cómo se podría escribir un test de componente en React utilizando Jest y Enzyme.
+
+Supongamos que queremos escribir un test para un componente sencillo llamado `Saludo`, que simplemente muestra un mensaje de bienvenida al usuario. El componente se ve así:
+
+```javascript
+import React from 'react';
+
+function Saludo(props) {
+  return <h1>Bienvenido, {props.nombre}!</h1>;
+}
+
+export default Saludo;
+```
+
+Para escribir el test de este componente, se podría crear un archivo llamado `Saludo.test.js` con el siguiente contenido:
+
+```javascript
+import React from 'react';
+import { shallow } from 'enzyme';
+import Saludo from './Saludo';
+
+describe('Saludo', () => {
+  it('debería mostrar el mensaje de bienvenida con el nombre proporcionado', () => {
+    const nombre = 'Juan';
+    const wrapper = shallow(<Saludo nombre={nombre} />);
+    const texto = wrapper.find('h1').text();
+    expect(texto).toEqual(`Bienvenido, ${nombre}!`);
+  });
+});
+```
+
+En este test, se utiliza la función `shallow` de Enzyme para renderizar el componente `Saludo` con un nombre proporcionado. Luego, se busca el elemento `h1` que contiene el mensaje de bienvenida y se verifica que el texto de ese elemento sea igual al mensaje esperado.
+
+Para ejecutar este test, se puede utilizar Jest, que es el framework de pruebas por defecto utilizado por Create React App. Para ello, basta con ejecutar el comando `npm test` en la consola.
+
+En resumen, un test de componente en React es una prueba que verifica el comportamiento de un componente en diferentes escenarios. Estos tests se pueden realizar utilizando frameworks de pruebas como Jest y Enzyme, y son esenciales para asegurarse de que el código de React funciona correctamente.

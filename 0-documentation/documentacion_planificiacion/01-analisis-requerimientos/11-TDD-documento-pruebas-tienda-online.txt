@@ -1,0 +1,39 @@
+Aquí te presento un ejemplo de un documento de pruebas para una tienda online:
+
+# Documento de Pruebas para una Tienda Online
+
+## Introducción
+El propósito de este documento es describir el enfoque, la metodología y los casos de prueba para las pruebas de la tienda online. Las pruebas son un tipo de actividad que permite verificar que la aplicación funciona de manera correcta y cumple con los requisitos especificados.
+
+## Enfoque
+El enfoque de las pruebas para la tienda online será de arriba hacia abajo (top-down). Se comenzará probando los componentes de mayor nivel, como la interfaz de usuario y los flujos de negocio, y se irá bajando hasta probar los componentes de menor nivel, como las clases y los métodos de las clases.
+
+## Metodología
+Se utilizará la metodología de pruebas ágiles, que consiste en realizar pruebas continuamente a medida que se desarrolla la aplicación. Se realizarán pruebas manuales y automatizadas, y se buscará tener una buena cobertura de pruebas para asegurarse de que la aplicación funciona correctamente.
+
+## Herramientas
+Se utilizarán las siguientes herramientas para las pruebas:
+- Selenium WebDriver para la automatización de pruebas de la interfaz de usuario
+- JUnit como framework de pruebas para el backend
+- Jest y Enzyme como frameworks de pruebas para el frontend
+
+## Casos de prueba
+Se describen a continuación los casos de prueba para los principales componentes de la tienda online.
+
+### Interfaz de usuario
+Se probarán los siguientes flujos de la interfaz de usuario:
+- Registro: Se probará el registro de un nuevo usuario en la tienda, verificando que se pueda completar el formulario correctamente y que se cree el usuario en la base de datos.
+- Inicio de sesión: Se probará el inicio de sesión de un usuario existente, verificando que se pueda iniciar sesión con las credenciales correctas y que se redireccione a la página principal.
+- Búsqueda de productos: Se probará la búsqueda de productos en la tienda, verificando que se muestren los resultados correspondientes y que se pueda hacer clic en cada producto para ver su detalle.
+- Agregar al carrito: Se probará la funcionalidad de agregar productos al carrito de compras, verificando que se actualice el carrito correctamente y que se muestre el total de la compra.
+- Proceso de pago: Se probará el proceso de pago de un pedido, verificando que se pueda completar el formulario de envío y pago correctamente y que se muestre un mensaje de confirmación después de completar la transacción.
+
+### Clases y métodos del backend
+Se probarán las siguientes clases y métodos del backend:
+- Clase `Product`: Se probará el constructor y los métodos `get` y `set` para todas las propiedades de la clase, como `id`, `name`, `description`, `price`, `category`, etc.
+- Clase `Cart`: Se probará el constructor y los métodos `get`, `addProduct`, `removeProduct` y `getTotalPrice`.
+- Servicio `ProductService`: Se probará el método `getAllProducts`, que debería devolver una lista de todos los productos disponibles en la tienda.
+
+### Componentes del frontend
+Se probarán los siguientes componentes del frontend:
+- Componente `ProductList`: Se probará que la lista de productos se

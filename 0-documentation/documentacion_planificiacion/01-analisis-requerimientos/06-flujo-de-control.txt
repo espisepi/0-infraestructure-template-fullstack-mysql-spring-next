@@ -1,0 +1,19 @@
+Los flujos de control en una tienda online se refieren a los procesos y decisiones que se siguen para llevar a cabo una transacción de compra en la plataforma. Estos flujos pueden variar de una tienda a otra, pero en general se pueden identificar los siguientes pasos:
+
+1 - Navegación: el usuario accede a la tienda online y navega por las distintas categorías y productos disponibles.
+
+2 - Selección: una vez que el usuario ha encontrado el producto que desea comprar, lo selecciona y lo añade al carrito de compras.
+
+3 - Revisión: antes de finalizar la compra, el usuario revisa los productos en su carrito, su cantidad y su precio.
+
+4 - Registro: si es la primera vez que el usuario realiza una compra en la tienda online, se le pedirá que se registre y cree una cuenta de usuario. Si ya tiene una cuenta, simplemente iniciará sesión.
+
+5 - Datos de envío: el usuario debe proporcionar la dirección de envío de los productos que ha comprado.
+
+6 - Pago: una vez que se han proporcionado los datos de envío, el usuario procede a pagar la compra mediante diferentes opciones de pago como tarjetas de crédito, transferencias bancarias, billeteras digitales, etc.
+
+7 - Confirmación: después de que se ha realizado el pago, se muestra una pantalla de confirmación de la compra en la que se detallan los productos adquiridos, el precio total y la fecha estimada de entrega.
+
+8 - Envío: finalmente, se realiza el envío de los productos al domicilio del usuario, y se le proporciona un número de seguimiento para que pueda monitorear el estado de su pedido.
+
+Estos son los principales flujos de control de una tienda online, aunque es importante destacar que pueden existir variaciones y particularidades dependiendo de la tienda y del sector en el que se mueve.

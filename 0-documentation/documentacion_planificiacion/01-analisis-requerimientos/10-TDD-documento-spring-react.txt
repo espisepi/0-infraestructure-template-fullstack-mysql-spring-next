@@ -1,0 +1,41 @@
+Aquí te presento un ejemplo de un documento TDD para una tienda online con Spring Boot API Rest y React:
+
+# Documento de Diseño de Pruebas (TDD) para una Tienda Online con Spring Boot API Rest y React
+
+## Descripción general del proyecto
+La tienda online es un sitio web que permite a los usuarios buscar, ver y comprar productos en línea. La tienda ofrece una variedad de productos, desde ropa y electrónica hasta comida y productos de belleza. Los usuarios pueden buscar productos por categoría, marca, precio, etc. Además, los usuarios pueden crear una cuenta, ver su historial de pedidos y guardar sus productos favoritos para futuras compras.
+
+La aplicación está construida utilizando Spring Boot para el backend API Rest y React para el frontend.
+
+## Objetivos de las pruebas
+El objetivo principal de las pruebas es garantizar que la tienda online funcione correctamente y que los usuarios puedan comprar productos de forma segura y eficiente. Las pruebas deben cubrir todos los aspectos de la tienda, incluyendo el frontend, el backend y la integración entre ambos.
+
+## Enfoque de las pruebas
+El enfoque de las pruebas será de arriba hacia abajo (top-down). Primero se probarán los componentes principales de la aplicación, como el carrito de compras y el proceso de pago, y luego se probarán los componentes secundarios, como la búsqueda y la navegación del sitio.
+
+## Herramientas de pruebas
+Se utilizarán las siguientes herramientas de pruebas para el proyecto:
+- JUnit y Mockito para pruebas unitarias del backend
+- Jest y Enzyme para pruebas unitarias del frontend
+- Cypress para pruebas end-to-end
+
+## Pruebas unitarias del backend
+Las pruebas unitarias del backend se enfocarán en la funcionalidad de los controladores y servicios. Cada servicio y controlador será probado por separado para garantizar que funcione correctamente antes de ser integrado en la aplicación. Se deben cubrir los siguientes aspectos en las pruebas unitarias:
+- Comportamiento de los servicios en diferentes escenarios y entradas
+- Interacción con la base de datos y otros servicios externos
+- Validación de datos en formularios
+
+## Pruebas unitarias del frontend
+Las pruebas unitarias del frontend se enfocarán en la funcionalidad de los componentes de React y su integración con el backend. Cada componente será probado por separado para garantizar que funcione correctamente antes de ser integrado en la aplicación. Se deben cubrir los siguientes aspectos en las pruebas unitarias:
+- Comportamiento de los componentes en diferentes escenarios y entradas
+- Interacción con el backend a través de solicitudes HTTP
+- Validación de datos en formularios
+
+## Pruebas end-to-end
+Las pruebas end-to-end se enfocarán en la funcionalidad de la tienda en su conjunto, desde la navegación del sitio hasta el proceso de pago. Se deben cubrir los siguientes aspectos en las pruebas end-to-end:
+- Funcionalidad de búsqueda y navegación del sitio
+- Agregar y eliminar productos del carrito de compras
+- Completar el proceso de pago y verificación de transacciones en la pasarela de pago
+
+## Conclusiones
+El uso de una estrategia TDD en el proyecto de la tienda online con Spring Boot API Rest y React garantizará que la aplicación sea probada exhaustivamente y que funcione correctamente antes de ser lanzada al mercado. Las

@@ -1,0 +1,172 @@
+=========== TEST END-TO-END CON RESTASSURED =============================
+
+Un test end-to-end en una API REST de Spring Boot es una prueba que verifica que todas las partes de la aplicación funcionan correctamente juntas, incluyendo el servidor, la base de datos y el frontend que consume la API. Estas pruebas se pueden realizar utilizando herramientas como RestAssured o Postman.
+
+A continuación, se presenta un ejemplo de cómo se podría escribir un test end-to-end utilizando RestAssured. Supongamos que queremos escribir un test para una API REST sencilla que permite a los usuarios crear y eliminar tareas. La API está construida con Spring Boot y utiliza una base de datos en memoria para almacenar las tareas.
+
+El test podría ser algo así:
+
+```java
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+
+import org.junit.jupiter.api.Test;
+
+class TareasControllerTest {
+
+    @Test
+    void deberiaPermitirCrearYEliminarTareas() {
+        String tarea = "Comprar leche";
+
+        // Crear tarea
+        given()
+            .contentType("application/json")
+            .body("{ \"nombre\": \"" + tarea + "\" }")
+        .when()
+            .post("/tareas")
+        .then()
+            .statusCode(201);
+
+        // Verificar que la tarea se ha creado correctamente
+        given()
+            .when()
+            .get("/tareas")
+        .then()
+            .body("nombre[0]", equalTo(tarea))
+            .statusCode(200);
+
+        // Eliminar tarea
+        given()
+            .when()
+            .delete("/tareas/1")
+        .then()
+            .statusCode(204);
+
+        // Verificar que la tarea se ha eliminado correctamente
+        given()
+            .when()
+            .get("/tareas")
+        .then()
+            .body("nombre", empty())
+            .statusCode(200);
+    }
+}
+```
+
+En este test, se utiliza la función `given` de RestAssured para enviar una solicitud POST para crear una tarea. Luego, se utiliza la función `when` para realizar una solicitud GET para obtener la lista de tareas y verificar que la tarea se ha creado correctamente.
+
+Después, se utiliza la función `when` para enviar una solicitud DELETE para eliminar la tarea y se verifica que la solicitud ha sido exitosa. Por último, se utiliza la función `when` para realizar otra solicitud GET para obtener la lista de tareas y verificar que la tarea ha sido eliminada correctamente.
+
+Este test verifica que la API REST funciona correctamente tanto en el backend como en el frontend que consume la API, asegurándose de que las tareas se puedan crear y eliminar correctamente.
+
+En resumen, un test end-to-end en una API REST de Spring Boot es una prueba que verifica que todas las partes de la aplicación funcionan correctamente juntas, incluyendo el servidor, la base de datos y el frontend que consume la API. Estas pruebas se pueden realizar utilizando herramientas como RestAssured o Postman, y son esenciales para asegurarse de que la aplicación funciona correctamente en su conjunto.
+
+
+
+
+
+============ TEST AL CONTROLADOR  ==================================
+
+A continuación, presentaré un ejemplo de cómo realizar un test de un controlador de API REST en un proyecto de Spring Boot:
+
+1. Identificación de la funcionalidad a probar: Supongamos que queremos probar un controlador que recibe una petición POST para crear un nuevo usuario.
+
+2. Escritura del test: Para este controlador, escribimos un test que comprueba que se puede crear un usuario correctamente. El test podría ser algo así:
+
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class UsuarioControllerTest {
+
+   @Autowired
+   private TestRestTemplate restTemplate;
+
+   @Autowired
+   private UsuarioRepository usuarioRepository;
+
+   @LocalServerPort
+   private int port;
+
+   @Test
+   public void testCrearUsuario() {
+      Usuario usuario = new Usuario();
+      usuario.setNombre("Juan");
+      usuario.setEmail("juan@example.com");
+      usuario.setContraseña("123456");
+
+      HttpHeaders headers = new HttpHeaders();
+      headers.setContentType(MediaType.APPLICATION_JSON);
+
+      HttpEntity<Usuario> request = new HttpEntity<>(usuario, headers);
+
+      ResponseEntity<Usuario> response = restTemplate.postForEntity(
+            "http://localhost:" + port + "/usuarios", request, Usuario.class);
+
+      assertEquals(HttpStatus.CREATED, response.getStatusCode());
+
+      Usuario usuarioGuardado = usuarioRepository.findById(response.getBody().getId()).orElse(null);
+
+      assertNotNull(usuarioGuardado);
+      assertEquals(usuario.getNombre(), usuarioGuardado.getNombre());
+      assertEquals(usuario.getEmail(), usuarioGuardado.getEmail());
+      assertEquals(usuario.getContraseña(), usuarioGuardado.getContraseña());
+   }
+}
+```
+
+3. Ejecución del test: Al ejecutar este test, esperamos que pase y que se cree correctamente un nuevo usuario en la base de datos.
+
+4. Explicación del test: En este test, utilizamos el `TestRestTemplate` para realizar una petición POST a la URL del controlador para crear un nuevo usuario. Comprobamos que la respuesta HTTP es 201 (CREATED), lo que indica que la creación del usuario ha sido exitosa. Luego, comprobamos que el usuario creado se ha guardado correctamente en la base de datos, comparando los datos del usuario creado con los datos del usuario guardado.
+
+En resumen, realizar tests para los controladores de API REST en proyectos de Spring Boot es una buena práctica que nos ayuda a garantizar la calidad y el correcto funcionamiento de la aplicación. Los tests automatizados nos permiten detectar errores y problemas de manera temprana, lo que facilita su corrección y mejora la confianza en el código que estamos desarrollando.
+
+
+
+
+
+
+
+
+
+
+
+============= TEST REPOSITORY O SERVICE ====================================
+
+
+
+A continuación, presentaré un ejemplo básico de cómo aplicar TDD en un proyecto de Spring Boot:
+
+1. Identificación de la funcionalidad a desarrollar: Supongamos que queremos desarrollar una funcionalidad que permita crear un nuevo usuario en nuestra tienda online.
+
+2. Escritura de la prueba: Para esta funcionalidad, escribiremos una prueba que compruebe que se puede crear un nuevo usuario correctamente. La prueba podría ser algo así:
+
+```java
+@Test
+public void testCrearUsuario() {
+   Usuario usuario = new Usuario();
+   usuario.setNombre("Juan");
+   usuario.setEmail("juan@example.com");
+   usuario.setContraseña("123456");
+
+   Usuario usuarioGuardado = usuarioRepository.save(usuario);
+
+   assertEquals(usuario, usuarioGuardado);
+}
+```
+
+3. Ejecución de la prueba: Al ejecutar esta prueba, esperamos que falle, ya que aún no hemos creado la funcionalidad para guardar el usuario en la base de datos.
+
+4. Escritura del código: A continuación, escribimos el código que hace pasar la prueba. En este caso, creamos una clase `UsuarioRepository` que implementa un método `save()` que guarda el usuario en la base de datos.
+
+```java
+@Repository
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {}
+```
+
+5. Ejecución de la prueba de nuevo: Después de escribir el código, ejecutamos la prueba de nuevo para comprobar que ahora pasa.
+
+6. Refactorización del código: Si es necesario, podemos refactorizar el código para mejorarlo.
+
+7. Repetición del proceso: Este proceso se repite para cada funcionalidad que queremos desarrollar en la tienda online.
+
+En resumen, el TDD es una metodología útil para desarrollar aplicaciones de Spring Boot, ya que permite asegurarse de que el código funciona correctamente y cumple con las especificaciones. Además, al escribir primero las pruebas, podemos detectar y corregir errores antes de que se conviertan en problemas más graves en el futuro.

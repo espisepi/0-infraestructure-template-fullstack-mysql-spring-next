@@ -1,0 +1,39 @@
+Aquí te presento un ejemplo de un documento TDD para una tienda online:
+
+# Documento de Diseño de Pruebas (TDD) para una Tienda Online
+
+## Descripción general del proyecto
+La tienda online es un sitio web que permite a los usuarios buscar, ver y comprar productos en línea. La tienda ofrece una variedad de productos, desde ropa y electrónica hasta comida y productos de belleza. Los usuarios pueden buscar productos por categoría, marca, precio, etc. Además, los usuarios pueden crear una cuenta, ver su historial de pedidos y guardar sus productos favoritos para futuras compras.
+
+## Objetivos de las pruebas
+El objetivo principal de las pruebas es garantizar que la tienda online funcione correctamente y que los usuarios puedan comprar productos de forma segura y eficiente. Las pruebas deben cubrir todos los aspectos de la tienda, incluyendo el frontend, el backend y la integración con sistemas externos (p. ej., pasarelas de pago).
+
+## Enfoque de las pruebas
+El enfoque de las pruebas será de arriba hacia abajo (top-down). Primero se probarán los componentes principales de la aplicación, como el carrito de compras y el proceso de pago, y luego se probarán los componentes secundarios, como la búsqueda y la navegación del sitio.
+
+## Herramientas de pruebas
+Se utilizarán las siguientes herramientas de pruebas para el proyecto:
+- Jest y Enzyme para pruebas unitarias de componentes de React
+- Cypress para pruebas end-to-end
+- JMeter para pruebas de carga
+
+## Pruebas unitarias
+Las pruebas unitarias se enfocarán en la funcionalidad de los componentes de React y su integración con el backend. Cada componente será probado por separado para garantizar que funcione correctamente antes de ser integrado en la aplicación. Se deben cubrir los siguientes aspectos en las pruebas unitarias:
+- Comportamiento de los componentes en diferentes escenarios y entradas
+- Validación de datos en formularios
+- Interacción con el backend a través de solicitudes HTTP
+
+## Pruebas end-to-end
+Las pruebas end-to-end se enfocarán en la funcionalidad de la tienda en su conjunto, desde la navegación del sitio hasta el proceso de pago. Se deben cubrir los siguientes aspectos en las pruebas end-to-end:
+- Funcionalidad de búsqueda y navegación del sitio
+- Agregar y eliminar productos del carrito de compras
+- Completar el proceso de pago y verificación de transacciones en la pasarela de pago
+
+## Pruebas de carga
+Las pruebas de carga se enfocarán en la capacidad de la tienda para manejar una gran cantidad de usuarios y transacciones simultáneamente. Se deben cubrir los siguientes aspectos en las pruebas de carga:
+- Rendimiento de la tienda en diferentes cargas de usuarios y transacciones
+- Capacidad de la tienda para manejar picos de tráfico y transacciones simultáneamente
+- Identificación y resolución de cuellos de botella y problemas de escalabilidad
+
+## Conclusiones
+El uso de una estrategia TDD en el proyecto de la tienda online garantizará que la aplicación sea probada exhaustivamente y que funcione correctamente antes de ser lanzada al mercado. Las pruebas unitarias, end-to-end y de carga cubrirán todos los aspectos de la tienda y permitirán que los usuarios compren productos de

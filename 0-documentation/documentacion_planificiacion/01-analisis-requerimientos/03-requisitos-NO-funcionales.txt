@@ -1,0 +1,15 @@
+1- Usabilidad: La tienda online debe ser fácil de usar e intuitiva para los usuarios, con una interfaz clara y sencilla.
+
+2- Seguridad: La tienda online debe garantizar la seguridad de los datos de los usuarios, como información personal, datos de pago y detalles de la compra.
+
+3 - Rendimiento: La tienda online debe ser rápida y eficiente, con tiempos de carga y respuesta cortos para evitar la pérdida de usuarios.
+
+4 - Escalabilidad: La tienda online debe ser capaz de manejar un gran volumen de usuarios y transacciones, y ser escalable para aumentar la capacidad según sea necesario.
+
+5 - Disponibilidad: La tienda online debe estar disponible las 24 horas del día, los 7 días de la semana, para que los usuarios puedan acceder a ella en cualquier momento.
+
+6 - Fiabilidad: La tienda online debe ser confiable y garantizar la integridad de la información y las transacciones de los usuarios.
+
+7 - Interoperabilidad: La tienda online debe ser compatible con diferentes navegadores web y dispositivos, para que los usuarios puedan acceder a ella desde diferentes plataformas.
+
+8 - Mantenibilidad: La tienda online debe ser fácil de mantener y actualizar, con un diseño modular y una arquitectura bien organizada.
